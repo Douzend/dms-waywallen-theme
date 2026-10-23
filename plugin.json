@@ -1,7 +1,7 @@
 {
 	"id": "waywallenTheme",
 	"name": "Waywallen Theme Sync",
-	"description": "Syncs DMS colors with your Waywallen wallpaper · Sincroniza los colores de DMS con el fondo de Waywallen",
+	"description": "Syncs DMS colors with your Waywallen wallpaper",
 	"version": "0.1.0",
 	"author": "Douzend",
 	"type": "daemon",

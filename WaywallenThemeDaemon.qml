@@ -43,8 +43,8 @@ PluginComponent {
 
     Timer {
         // Waywallen replaces config.toml atomically, which kills the file watch,
-        // so poll it. A 5 s read is cheap and keeps the sync responsive.
-        interval: 5000
+        // so poll it. A 3 s read is cheap and keeps the sync responsive.
+        interval: 3000
         repeat: true
         running: true
         onTriggered: cfg.reload()

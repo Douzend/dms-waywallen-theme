@@ -62,7 +62,7 @@ dms ipc call plugin-scan reload waywallenTheme
 
 ## How it works
 
-1. Watches `~/.config/waywallen/config.toml` (plus a 2 s poll, because Waywallen
+1. Watches `~/.config/waywallen/config.toml` (plus a 5 s poll, because Waywallen
    rewrites the file atomically and `inotify` watches stop working).
 2. Reads the wallpaper id from `last_wallpaper` and looks it up in Waywallen's
    SQLite database.

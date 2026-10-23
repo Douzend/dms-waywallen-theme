@@ -1,0 +1,25 @@
+{
+    "Waywallen Theme Sync": { "Waywallen Theme Sync": "Sincronización de tema con Waywallen" },
+
+    "Position": { "Position": "Posición" },
+    "Percentage of the animation used to build the color palette": {
+        "Percentage of the animation used to build the color palette": "Porcentaje de la animación usado para generar la paleta de colores"
+    },
+    "Theme sync failed": { "Theme sync failed": "Falló la sincronización del tema" },
+    "Wallpaper not found in the Waywallen library": {
+        "Wallpaper not found in the Waywallen library": "No se encontró el fondo en la biblioteca de Waywallen"
+    },
+    "This wallpaper has no preview to sample": {
+        "This wallpaper has no preview to sample": "Este fondo no tiene vista previa para extraer"
+    },
+    "ffmpeg could not extract the frame": {
+        "ffmpeg could not extract the frame": "ffmpeg no pudo extraer el fotograma"
+    },
+    "Set wallpaper": { "Set wallpaper": "Cambiar el fondo" },
+    "When off, only the colors are synced": {
+        "When off, only the colors are synced": "Cuando está desactivado, solo se sincronizan los colores"
+    },
+    "Warning: Scene wallpapers may look soft or zoomed": {
+        "Warning: Scene wallpapers may look soft or zoomed": "Aviso: Los fondos de tipo scene pueden verse suaves o ampliados"
+    }
+}

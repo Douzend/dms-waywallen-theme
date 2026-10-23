@@ -1,0 +1,16 @@
+{
+	"id": "waywallenTheme",
+	"name": "Waywallen Theme Sync",
+	"description": "Syncs DMS colors with your Waywallen wallpaper",
+	"version": "0.1.0",
+	"author": "Douzend",
+	"type": "daemon",
+	"capabilities": ["daemon"],
+	"icon": "wallpaper",
+	"component": "./WaywallenThemeDaemon.qml",
+	"settings": "./WaywallenThemeSettings.qml",
+	"startupCheck": "./StartupCheck.qml",
+	"permissions": ["settings_read", "settings_write"],
+	"requires": ["sqlite3", "ffmpeg"],
+	"requires_dms": ">=1.6.0"
+}

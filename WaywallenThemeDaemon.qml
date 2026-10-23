@@ -13,7 +13,7 @@ PluginComponent {
     readonly property string dir: home + "/.cache/waywallen-theme"
     readonly property string dmsBin: Quickshell.env("DMS_EXECUTABLE") || "dms"
     readonly property int percent: Math.min(100, Math.max(0, Math.round(pluginData.framePercent ?? 5)))
-    readonly property bool makeWallpaper: pluginData.applyWallpaper !== false
+    readonly property bool makeWallpaper: pluginData.applyWallpaper === true
     readonly property int outHeight: {
         const s = Quickshell.screens.length > 0 ? Quickshell.screens[0] : null;
         return s ? Math.round(s.height * (s.devicePixelRatio || 1)) : 1080;
@@ -140,14 +140,15 @@ PluginComponent {
     }
 
     function clean(id) {
-        const args = ["find", dir, "-name", "frame-*.png",
-                      "!", "-name", "frame-" + id + "-*.png"];
-        // In wallpaper mode the old frame is no longer displayed, so it can go now.
-        // In colors-only mode DMS may still show it, so only drop files older than a day.
-        if (!makeWallpaper)
-            args.push("-mmin", "+1440");
-        args.push("-delete");
-        Proc.runCommand("ww.clean", args, () => {});
+        Proc.runCommand("ww.current", [dmsBin, "ipc", "call", "wallpaper", "get"], out => {
+            const keep = "frame-" + id + "-";
+            const used = out.trim();
+            const args = ["find", dir, "-name", "frame-*.png", "!", "-name", keep + "*.png"];
+            if (used.startsWith(dir + "/"))
+                args.push("!", "-name", used.slice(dir.length + 1));
+            args.push("-delete");
+            Proc.runCommand("ww.clean", args, () => {});
+        });
     }
 
     function fail(msg, id) {

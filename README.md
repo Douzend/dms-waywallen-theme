@@ -1,3 +1,4 @@
+
 # Waywallen Theme Sync
 
 A [DankMaterialShell](https://danklinux.com) plugin that keeps your DMS colors in
@@ -57,7 +58,7 @@ dms ipc call plugin-scan reload waywallenTheme
 
 | Setting | Default | What it does |
 |---|---|---|
-| **Set wallpaper** | on | Also replaces the DMS wallpaper with the extracted frame. Turn it off to sync only the colors and keep your current wallpaper. |
+| **Set wallpaper** | off | Also replaces the DMS wallpaper with the extracted frame. Turn it off to sync only the colors and keep your current wallpaper. |
 | **Position** | 5 % | Where in the animation the frame is sampled. Only used when the source has a duration (videos and GIFs). |
 
 ## How it works
@@ -70,7 +71,7 @@ dms ipc call plugin-scan reload waywallenTheme
    `.mp4`; images use the file itself; scenes use their Steam preview.
 4. Either calls `dms ipc call wallpaper set <frame>` or `Theme.setDesiredTheme()`,
    depending on the **Set wallpaper** toggle.
-5. Crops the frame to your monitor resolution and deletes old cached frames.
+5. Crops the frame to your monitor resolution and keeps only the frame in use.
 
 Frames are cached in `~/.cache/waywallen-theme/`.
 

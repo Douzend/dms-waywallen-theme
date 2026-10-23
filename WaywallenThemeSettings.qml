@@ -20,7 +20,7 @@ PluginSettings {
         settingKey: "applyWallpaper"
         label: I18n.trFor("waywallenTheme", "Set wallpaper")
         description: I18n.trFor("waywallenTheme", "When off, only the colors are synced")
-        defaultValue: true
+        defaultValue: false
     }
 
     StyledText {

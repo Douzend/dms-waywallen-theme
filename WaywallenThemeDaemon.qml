@@ -80,7 +80,7 @@ PluginComponent {
         if (busy || !cfg.text())
             return;
         const m = cfg.text().match(/^last_wallpaper\s*=\s*"([^"]+)"/m);
-        if (!m || m[1] === lastId)
+        if (!m || !/^\d+$/.test(m[1]) || m[1] === lastId)
             return;
         lastId = m[1];
         busy = true;
@@ -138,13 +138,14 @@ PluginComponent {
     }
 
     function clean(id) {
-        const keep = "! -name 'frame-" + id + "-*.png'";
+        const args = ["find", dir, "-name", "frame-*.png",
+                      "!", "-name", "frame-" + id + "-*.png"];
         // In wallpaper mode the old frame is no longer displayed, so it can go now.
         // In colors-only mode DMS may still show it, so only drop files older than a day.
-        const filter = makeWallpaper ? keep : keep + " -mmin +1440";
-        Proc.runCommand("ww.clean", ["sh", "-c",
-            "mkdir -p '" + dir + "' && find '" + dir + "' -name 'frame-*.png' " + filter + " -delete"],
-            () => {});
+        if (!makeWallpaper)
+            args.push("-mmin", "+1440");
+        args.push("-delete");
+        Proc.runCommand("ww.clean", args, () => {});
     }
 
     function fail(msg, id) {

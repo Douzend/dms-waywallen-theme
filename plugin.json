@@ -11,6 +11,6 @@
 	"settings": "./WaywallenThemeSettings.qml",
 	"startupCheck": "./StartupCheck.qml",
 	"permissions": ["settings_read", "settings_write", "process"],
-	"dependencies": ["ffmpeg", "sqlite3"],
+	"dependencies": ["waywallen", "ffmpeg", "sqlite3"],
 	"requires_dms": ">=1.6.0"
 }
